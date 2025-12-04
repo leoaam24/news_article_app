@@ -1,3 +1,4 @@
+//for future building
 class News {
 
   String? source;

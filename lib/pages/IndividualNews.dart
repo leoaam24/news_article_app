@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:news_article_app/NewsService.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-
+//Page for Specific News when navigated by user
+//Stateful widget is used for interactivity
 class IndividualNews extends StatefulWidget {
   const IndividualNews({super.key});
 
@@ -11,7 +12,8 @@ class IndividualNews extends StatefulWidget {
 }
 
 class _State extends State<IndividualNews> {
-
+  //placeholder values
+  //Instantiating a use of NewsService
   final NewsService _newsService = NewsService();
   String _newsTitle = 'Loading...';
   String _newsDescription = 'Loading...';
@@ -20,16 +22,19 @@ class _State extends State<IndividualNews> {
   String _newsContent = 'No Content';
   String _newsUrl = '';
 
-
+  //setting initial state of the page
   @override
   void initState() {
     super.initState();
     _loadNews();
   }
 
+  //Extracting data fetched from API through newsService
   void _loadNews() async {
     try {
+      //storing service class result
       final newsData = await _newsService.fetchNews();
+      //changing the values to reflect the data
       setState(() {
         _newsTitle = newsData['title']!;
         _newsDescription = newsData['description']!;
@@ -38,15 +43,18 @@ class _State extends State<IndividualNews> {
         _newsContent = newsData['content']!;
         _newsUrl = newsData['url']!;
       });
+      //catching and representing the error
     } catch (e) {
       setState(() {
         _newsTitle = 'Failed to load title';
         _newsDescription = 'Failed to load description';
       });
+      //for api fetch errors
       print('Error fetching news: $e');
     }
   }
 
+  //actual design and structure of the page
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -71,6 +79,7 @@ class _State extends State<IndividualNews> {
             ),
             Center(
               child: TextButton.icon(onPressed: () async {
+                //for launching the actual news site in the browser
                 final Uri uri = Uri.parse(_newsUrl);
                 if (await canLaunchUrl(uri)) {
                   await launchUrl(uri);

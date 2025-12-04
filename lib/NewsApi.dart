@@ -1,11 +1,10 @@
-
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-
+//This Class is used for fetching API from the provider
 class NewsApi {
-
+  //Constructor for initializing the API fetch
   NewsApi();
-
+  //Method to fetch data from the API
   Future<Map<String, dynamic>> getData() async {
     try {
       // 1. Create the URL

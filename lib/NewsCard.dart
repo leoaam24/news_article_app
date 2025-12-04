@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
-
+//This class is used for Card Templating
 class CardTemplate extends StatelessWidget {
 
   final String? newsTitle;
   final String? newsDescription;
   final String? newsImage;
 
-
+  //for Initializing the template
   const CardTemplate({super.key, this.newsTitle, this.newsDescription, this.newsImage});
 
+  //actual building of the card
   @override
   Widget build(BuildContext context) {
     return Card(
+      //Structure and design of the card itself
       margin: EdgeInsets.all(20),
       color: Colors.grey[600],
       child: Padding(
@@ -28,7 +30,7 @@ class CardTemplate extends StatelessWidget {
                 color: Colors.grey[800],
                 child: Center(child: Icon(Icons.image_not_supported, color: Colors.white)),
               ),
-
+            //SizedBox is for spacing
             SizedBox(height: 10),
 
             // Handle null title
@@ -40,6 +42,7 @@ class CardTemplate extends StatelessWidget {
               ),
             ),
 
+            //SizedBox is for spacing
             SizedBox(height: 8),
 
             // Handle null description
@@ -49,8 +52,10 @@ class CardTemplate extends StatelessWidget {
               ),
             ),
 
+            //SizedBox is for spacing
             SizedBox(height: 8),
 
+            //button layout for navigating to individual news
             TextButton(onPressed: () {
               Navigator.pushNamed(context, '/iNews');
             },
