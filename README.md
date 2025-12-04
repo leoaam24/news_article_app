@@ -5,7 +5,9 @@ This is a news article app that pulls information from newsapi.org. This app let
 To run the released app download from this link: 
 [Gdrive](https://drive.google.com/file/d/1V_VIbkPrU6naTEUkxZogOmrVBGJSXh76/view?usp=sharing)
 To run debug version, you can copy my repo from this link:
+
 [GitHub Repo](https://github.com/leoaam24/news_article_app)
+
 [Software Demo Video](https://youtu.be/TxSATgjmoec)
 
 # Development Environment
